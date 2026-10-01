@@ -1,0 +1,27 @@
+# dependencies
+node_modules/
+
+# build
+dist/
+.vite/
+.turbo/
+.cache/
+
+# local environment
+.env
+.env.*
+!.env.example
+
+# editor / OS
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+.DS_Store
+Thumbs.db
+
+# logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
