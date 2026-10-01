@@ -1,12 +1,14 @@
 # FOLICULA Barber Studio
 
-Landing page demonstrativa para uma barbearia moderna, evoluída para uma experiência comercial com galeria, avaliações, localização e fluxo de agendamento pelo WhatsApp.
+Landing page demonstrativa para uma barbearia moderna, criada como projeto de portfólio.
 
 ## ✂️ Sobre o projeto
 
 O FOLICULA Barber Studio é um site institucional responsivo para apresentar uma barbearia, seus profissionais, serviços e informações de atendimento.
 
-O projeto faz parte de um portfólio de desenvolvimento web e utiliza dados fictícios. Antes de um uso comercial, substitua endereço, telefone, nomes, imagens, preços e links de redes sociais pelos dados reais do cliente.
+O projeto foi prototipado com Lovable e preparado para desenvolvimento local, versionamento com Git/GitHub e deploy na Vercel.
+
+> **Projeto demonstrativo:** informações como endereço, telefone, preços e nomes são fictícias e devem ser substituídas antes de qualquer uso comercial.
 
 ## 🚀 Tecnologias
 
@@ -15,23 +17,37 @@ O projeto faz parte de um portfólio de desenvolvimento web e utiliza dados fict
 - Vite
 - Tailwind CSS
 - TanStack Router
-- Lucide React
+- shadcn/ui / Radix UI
+- Lucide Icons
 
-## 📋 V2 — funcionalidades
+## 📋 Funcionalidades
 
-- Hero comercial com CTA de agendamento
-- Menu responsivo para celular
-- Serviços com preço e duração
+- Hero section com CTA de agendamento
+- Modo claro e escuro com preferência salva no navegador
+- Apresentação da barbearia
+- Serviços com preços e duração
 - Galeria de estilos
-- Perfil dos barbeiros
-- Avaliações de clientes
-- Horários de atendimento
-- Localização e botão de rota
-- CTA para WhatsApp
+- Perfis dos barbeiros
+- Depoimentos
+- Localização e link para Google Maps
 - Modal de agendamento
 - Seleção de serviço, barbeiro, data e horário
-- Geração automática da mensagem de agendamento para WhatsApp
-- SEO básico e metadata da marca
+- Validação básica de data e dados do cliente
+- Resumo do agendamento com preço e duração
+- Geração de mensagem para WhatsApp
+- Layout responsivo para desktop e celular
+
+## 📅 Agendamento
+
+O agendamento da V4 funciona sem banco de dados. O cliente preenche os dados no site e o pedido é enviado pelo WhatsApp da barbearia.
+
+O horário **não é confirmado automaticamente**: a confirmação acontece após a resposta da barbearia no WhatsApp.
+
+Antes de publicar para uma empresa real, substitua o número em `src/routes/index.tsx`:
+
+```ts
+const WHATSAPP_NUMBER = "5511999999999";
+```
 
 ## 📦 Instalação
 
@@ -45,7 +61,7 @@ npm install
 npm run dev
 ```
 
-Normalmente o projeto ficará disponível em:
+O Vite disponibiliza o projeto localmente, normalmente em:
 
 ```text
 http://localhost:5173
@@ -57,9 +73,15 @@ http://localhost:5173
 npm run build
 ```
 
+## 🧪 TypeScript
+
+```bash
+npx tsc --noEmit
+```
+
 ## 🌐 Deploy
 
-O projeto pode ser publicado na Vercel conectado ao repositório do GitHub.
+O projeto pode ser conectado ao GitHub e publicado na Vercel.
 
 Fluxo recomendado:
 
@@ -72,24 +94,31 @@ VS Code → Git → GitHub → Vercel
 - `main` → versão estável
 - `dev` → desenvolvimento
 
-Fluxo recomendado:
+Fluxo:
 
 ```text
-dev → Pull Request → main
+main
+  └── dev
 ```
 
-## 📱 WhatsApp
-
-O número usado pelo agendamento está centralizado em `src/routes/index.tsx` na constante `WHATSAPP_NUMBER`.
-
-Antes de entregar o site a um cliente, troque o número fictício pelo WhatsApp real da empresa.
+Desenvolva em `dev` e faça Pull Request para `main` quando uma versão estiver pronta.
 
 ## 🔒 Segurança
 
-Não coloque chaves de API, senhas ou outros segredos diretamente no código ou no GitHub.
+Não coloque senhas, tokens ou chaves privadas no código ou no GitHub. Use variáveis de ambiente (`.env`) quando um projeto precisar de informações sensíveis.
 
 ## 👨‍💻 Desenvolvedor
 
-**Gean Ribeiro**
+Gean Ribeiro
 
-Projeto desenvolvido para estudo, portfólio e demonstração de desenvolvimento web.
+
+## 🆕 V5
+
+- Modo claro/escuro com preferência salva no navegador
+- Agendamento pelo WhatsApp
+- Número de atendimento configurado para teste
+- Galeria com visualização ampliada e navegação por setas
+- Seção de horários com atalhos para iniciar o agendamento
+- Navegação atualizada para a seção de horários
+
+> **Demonstração:** o número de WhatsApp configurado nesta versão é o número de teste do desenvolvedor. Substitua antes de entregar o projeto a um cliente.

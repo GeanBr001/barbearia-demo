@@ -155,3 +155,56 @@
     font-family: var(--font-body);
   }
 }
+
+/* FOLICULA theme polish
+ * The page uses a glassmorphism visual language with a number of white utility
+ * classes. These overrides keep those surfaces readable when .dark is active.
+ */
+.dark body {
+  color-scheme: dark;
+}
+
+.dark .bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, oklch(0.15 0.025 260), oklch(0.17 0.035 275), oklch(0.13 0.025 205)) !important;
+}
+
+.dark [class*="bg-white/"] {
+  background-color: oklch(0.18 0.025 260 / 0.78) !important;
+}
+
+.dark [class*="border-white/"] {
+  border-color: oklch(1 0 0 / 0.12) !important;
+}
+
+.dark [class*="hover:bg-white"]:hover {
+  background-color: oklch(0.24 0.03 260) !important;
+}
+
+.dark [class*="hover:bg-slate-100"]:hover {
+  background-color: oklch(0.24 0.03 260) !important;
+}
+
+.dark .bg-white {
+  background-color: oklch(0.18 0.025 260) !important;
+}
+
+.dark .text-ink {
+  color: oklch(0.96 0.01 260) !important;
+}
+
+.dark [class*="text-ink/"] {
+  color: oklch(0.96 0.01 260 / 0.62) !important;
+}
+
+.dark .border-ink\/10 {
+  border-color: oklch(1 0 0 / 0.12) !important;
+}
+
+.dark .shadow-ink\/5,
+.dark .shadow-ink\/20 {
+  --tw-shadow-color: oklch(0 0 0 / 0.35) !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: oklch(0.18 0.025 260) !important;
+}
