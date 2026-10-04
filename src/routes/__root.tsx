@@ -11,7 +11,6 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
   return (
@@ -39,7 +38,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
   useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
+    console.error("FOLICULA route error:", error);
   }, [error]);
 
   return (
@@ -79,13 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Folicula Barber Studio" },
-      { name: "description", content: "Folicula Barber Studio — cortes, barba e estilo com agendamento pelo WhatsApp." },
+      {
+        name: "description",
+        content: "Folicula Barber Studio — cortes, barba e estilo com agendamento pelo WhatsApp.",
+      },
       { name: "author", content: "Gean Ribeiro" },
       { property: "og:title", content: "Folicula Barber Studio" },
-      { property: "og:description", content: "Cortes, barba e estilo com agendamento pelo WhatsApp." },
+      {
+        property: "og:description",
+        content: "Cortes, barba e estilo com agendamento pelo WhatsApp.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      
+      { name: "theme-color", content: "#0f172a" },
+      { name: "robots", content: "index, follow" },
     ],
     links: [
       {
