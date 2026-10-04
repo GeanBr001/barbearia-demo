@@ -1,6 +1,7 @@
 export const timeSlots = ["09:00", "10:00", "11:20", "14:00", "14:40", "16:00", "18:20", "19:00"];
 
-export const SUNDAY_MESSAGE = "A FOLICULA não atende aos domingos. Escolha outro dia.";
+export const sundayMessage = (businessName: string) =>
+  `A ${businessName} não atende aos domingos. Escolha outro dia.`;
 
 export type BookingPreset = Partial<{ service: string; barber: string; time: string }>;
 
@@ -67,9 +68,9 @@ export function isValidPhone(value: string) {
   return value.replace(/\D/g, "").length >= 10;
 }
 
-export function buildBookingMessage(booking: BookingSummary) {
+export function buildBookingMessage(booking: BookingSummary, businessName: string) {
   return (
-    `Olá! Quero agendar um horário na FOLICULA Barber Studio.\n\n` +
+    `Olá! Quero agendar um horário na ${businessName}.\n\n` +
     `Nome: ${booking.name.trim()}\n` +
     `Telefone: ${booking.phone.trim()}\n` +
     `Serviço: ${booking.service} — ${booking.price} (${booking.duration})\n` +

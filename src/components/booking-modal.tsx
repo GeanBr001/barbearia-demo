@@ -11,7 +11,8 @@ import {
 } from "lucide-react";
 
 import { InputField, SelectField } from "@/components/form-fields";
-import { barbers, services, WHATSAPP_URL } from "@/data/site";
+import { whatsappUrl } from "@/data/brand";
+import { barbers, services } from "@/data/site";
 import type { BookingForm } from "@/hooks/use-booking-form";
 import { isValidPhone, timeSlots } from "@/lib/booking";
 
@@ -297,7 +298,7 @@ export function BookingModal({ form, onClose }: BookingModalProps) {
 
             {canSubmit ? (
               <a
-                href={`${WHATSAPP_URL}?text=${whatsappMessage}`}
+                href={`${whatsappUrl}?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => setBookingSent(true)}

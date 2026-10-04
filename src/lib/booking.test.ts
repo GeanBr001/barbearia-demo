@@ -8,6 +8,7 @@ import {
   isSunday,
   isValidPhone,
   reconcileTime,
+  sundayMessage,
   timeSlots,
 } from "./booking";
 
@@ -60,6 +61,12 @@ describe("reconcileTime", () => {
   });
 });
 
+describe("sundayMessage", () => {
+  it("usa o nome do negócio", () => {
+    expect(sundayMessage("FOLICULA")).toContain("A FOLICULA não atende aos domingos");
+  });
+});
+
 describe("telefone", () => {
   it("aplica a máscara brasileira", () => {
     expect(formatPhone("46999990000")).toBe("(46) 99999-0000");
@@ -74,16 +81,20 @@ describe("telefone", () => {
 
 describe("buildBookingMessage", () => {
   it("monta a mensagem do WhatsApp com os dados do pedido", () => {
-    const message = buildBookingMessage({
-      name: " Ana ",
-      phone: "(46) 99999-0000",
-      service: "Corte clássico",
-      price: "R$ 45",
-      duration: "40 min",
-      barber: "Rafael Duarte",
-      date: MONDAY,
-      time: "10:00",
-    });
+    const message = buildBookingMessage(
+      {
+        name: " Ana ",
+        phone: "(46) 99999-0000",
+        service: "Corte clássico",
+        price: "R$ 45",
+        duration: "40 min",
+        barber: "Rafael Duarte",
+        date: MONDAY,
+        time: "10:00",
+      },
+      "FOLICULA Barber Studio",
+    );
+    expect(message).toContain("na FOLICULA Barber Studio");
     expect(message).toContain("Nome: Ana");
     expect(message).toContain("Serviço: Corte clássico — R$ 45 (40 min)");
     expect(message).toContain("Horário: 10:00");

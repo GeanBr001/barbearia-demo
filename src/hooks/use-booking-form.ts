@@ -1,5 +1,6 @@
 import { useState } from "react";
 
+import { brand } from "@/data/brand";
 import { barbers, services } from "@/data/site";
 import {
   buildBookingMessage,
@@ -10,7 +11,7 @@ import {
   isSunday,
   isValidPhone,
   reconcileTime,
-  SUNDAY_MESSAGE,
+  sundayMessage,
   type BookingPreset,
 } from "@/lib/booking";
 
@@ -37,16 +38,19 @@ export function useBookingForm() {
   );
 
   const whatsappMessage = encodeURIComponent(
-    buildBookingMessage({
-      name: clientName,
-      phone: clientPhone,
-      service,
-      price: selectedService.price,
-      duration: selectedService.duration,
-      barber,
-      date,
-      time,
-    }),
+    buildBookingMessage(
+      {
+        name: clientName,
+        phone: clientPhone,
+        service,
+        price: selectedService.price,
+        duration: selectedService.duration,
+        barber,
+        date,
+        time,
+      },
+      brand.fullName,
+    ),
   );
 
   const applyPreset = (preset: BookingPreset) => {
@@ -61,7 +65,7 @@ export function useBookingForm() {
   const handleDateChange = (value: string) => {
     setDate(value);
     setTime((current) => reconcileTime(current, value, barber));
-    setBookingError(isSunday(value) ? SUNDAY_MESSAGE : "");
+    setBookingError(isSunday(value) ? sundayMessage(brand.name) : "");
   };
 
   const handleBarberChange = (value: string) => {

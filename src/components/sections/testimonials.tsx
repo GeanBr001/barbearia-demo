@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 
+import { brand } from "@/data/brand";
 import { testimonials } from "@/data/site";
 
 export function Testimonials() {
@@ -18,7 +19,7 @@ export function Testimonials() {
           <div className="flex items-center gap-2 rounded-2xl bg-white/10 px-4 py-3">
             <Star className="fill-current text-brand" size={18} />
             <div>
-              <p className="font-bold">4.9 / 5</p>
+              <p className="font-bold">{brand.rating} / 5</p>
               <p className="text-xs text-white/50">avaliação média</p>
             </div>
           </div>
@@ -33,7 +34,7 @@ export function Testimonials() {
               </div>
               <p className="mt-4 text-sm leading-6 text-white/75">“{item.text}”</p>
               <p className="mt-5 text-sm font-bold">{item.name}</p>
-              <p className="mt-1 text-xs text-white/40">Cliente FOLICULA</p>
+              <p className="mt-1 text-xs text-white/40">Cliente {brand.name}</p>
             </article>
           ))}
         </div>

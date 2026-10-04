@@ -1,6 +1,7 @@
 import { Maximize2 } from "lucide-react";
 
 import { SectionHeading } from "@/components/primitives";
+import { brand } from "@/data/brand";
 import { gallery } from "@/data/site";
 
 export function Gallery({ onOpen }: { onOpen: (index: number) => void }) {
@@ -9,7 +10,7 @@ export function Gallery({ onOpen }: { onOpen: (index: number) => void }) {
       <SectionHeading
         eyebrow="Nosso trabalho"
         title="Galeria de estilos"
-        text="Alguns dos estilos que fazem parte da experiência FOLICULA."
+        text={`Alguns dos estilos que fazem parte da experiência ${brand.name}.`}
       />
       <div className="mt-6 grid auto-rows-[170px] grid-cols-2 gap-3 sm:auto-rows-[210px] sm:grid-cols-4">
         {gallery.map((item, index) => (

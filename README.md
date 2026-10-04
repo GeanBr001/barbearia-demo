@@ -30,7 +30,8 @@ src/
 │   ├── booking-modal.tsx
 │   ├── gallery-lightbox.tsx
 │   └── header.tsx · footer.tsx · floating-actions.tsx · form-fields.tsx · primitives.tsx
-├── data/site.ts         # textos, serviços, barbeiros, FAQ, WhatsApp e endereço
+├── data/brand.ts        # nome, contato, endereço, textos do hero (edite aqui para um novo cliente)
+├── data/site.ts         # serviços, barbeiros, galeria, depoimentos e FAQ
 ├── hooks/               # tema, rolagem, revelar ao rolar e estado do formulário
 ├── lib/booking.ts       # regras do agendamento (datas, horários, telefone, mensagem)
 ├── routes/              # rotas (TanStack Router, baseado em arquivos)
@@ -57,9 +58,19 @@ O Vite mostra no terminal o endereço local (normalmente `http://localhost:5173`
 
 ## Agendamento e WhatsApp
 
-Não há banco de dados: a disponibilidade é **simulada no navegador** e a confirmação real acontece pelo WhatsApp. O número fica em `src/data/site.ts` (`WHATSAPP_NUMBER`) — troque pelo número do cliente antes de qualquer uso real.
+Não há banco de dados: a disponibilidade é **simulada no navegador** e a confirmação real acontece pelo WhatsApp. O número fica em `src/data/brand.ts` (`whatsappNumber`) — troque pelo número do cliente antes de qualquer uso real.
 
 Para virar um produto de verdade, o próximo passo seria conectar a agenda a um backend/banco de dados e criar uma área para a equipe cadastrar, bloquear e confirmar horários.
+
+## Adaptar para um novo cliente
+
+1. `src/data/brand.ts`: nome, WhatsApp, Instagram, endereço, horários e textos do topo da página.
+2. `src/data/site.ts`: serviços e preços, barbeiros, galeria, depoimentos e FAQ.
+3. `src/styles.css`: a cor da marca está em `--brand` (e `--ink` para o tom escuro).
+4. `src/assets/`: troque as fotos mantendo os nomes, ou ajuste os imports em `data/site.ts`.
+5. `public/favicon.ico`: ícone da aba.
+
+Textos, nome e links vêm todos desses arquivos, então não é preciso mexer nos componentes.
 
 ## Autor
 

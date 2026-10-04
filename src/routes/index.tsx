@@ -20,25 +20,24 @@ import { useBookingForm } from "@/hooks/use-booking-form";
 import { useReveal } from "@/hooks/use-reveal";
 import { useScrollState } from "@/hooks/use-scroll-state";
 import { useTheme } from "@/hooks/use-theme";
+import { brand } from "@/data/brand";
 import type { BookingPreset } from "@/lib/booking";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Folicula Barber Studio — Cortes, barba e estilo" },
+      { title: `${brand.fullName} — ${brand.seo.title}` },
       {
         name: "description",
-        content:
-          "Barbearia premium com cortes, barba e atendimento personalizado. Escolha seu serviço, barbeiro e agende pelo WhatsApp.",
+        content: brand.seo.description,
       },
       {
         property: "og:title",
-        content: "Folicula Barber Studio — Cortes, barba e estilo",
+        content: `${brand.fullName} — ${brand.seo.title}`,
       },
       {
         property: "og:description",
-        content:
-          "Cortes, barba e estilo com atendimento personalizado. Agende seu horário pelo WhatsApp.",
+        content: brand.seo.shortDescription,
       },
     ],
   }),

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CalendarDays, Menu, Moon, Sun, X } from "lucide-react";
 
+import { brand } from "@/data/brand";
 import { navLinks } from "@/data/site";
 
 type HeaderProps = {
@@ -23,8 +24,12 @@ export function Header({ darkMode, scrolled, onToggleTheme, onBook }: HeaderProp
             F
           </div>
           <div>
-            <p className="font-display text-lg font-bold leading-none tracking-tight">FOLICULA</p>
-            <p className="mt-1 text-[9px] uppercase tracking-[0.2em] text-ink/50">Barber Studio</p>
+            <p className="font-display text-lg font-bold leading-none tracking-tight">
+              {brand.name}
+            </p>
+            <p className="mt-1 text-[9px] uppercase tracking-[0.2em] text-ink/50">
+              {brand.descriptor}
+            </p>
           </div>
         </a>
 

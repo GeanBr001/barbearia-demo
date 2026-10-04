@@ -1,6 +1,6 @@
 import { ArrowUp, CalendarDays, MessageCircle } from "lucide-react";
 
-import { WHATSAPP_URL } from "@/data/site";
+import { whatsappUrl } from "@/data/brand";
 
 export function FloatingActions({
   showBackToTop,
@@ -27,7 +27,7 @@ export function FloatingActions({
       <div className="fixed inset-x-0 bottom-0 z-40 border-t border-ink/10 bg-white/90 p-3 shadow-2xl backdrop-blur-xl dark:bg-slate-950/90 sm:hidden">
         <div className="mx-auto flex max-w-md items-center gap-2">
           <a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             aria-label="Abrir WhatsApp"

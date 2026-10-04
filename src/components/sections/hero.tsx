@@ -2,6 +2,7 @@ import { ArrowRight, Clock3 } from "lucide-react";
 
 import { Stat } from "@/components/primitives";
 import heroImage from "@/assets/hero-barber.jpg";
+import { brand } from "@/data/brand";
 import type { BookingPreset } from "@/lib/booking";
 
 export function Hero({ onBook }: { onBook: (preset?: BookingPreset) => void }) {
@@ -9,14 +10,13 @@ export function Hero({ onBook }: { onBook: (preset?: BookingPreset) => void }) {
     <section id="inicio" data-reveal className="mt-7 grid gap-5 lg:grid-cols-12 lg:pt-3">
       <div className="rounded-[2rem] border border-white/70 bg-white/65 p-6 shadow-xl shadow-ink/5 backdrop-blur-2xl sm:p-8 lg:col-span-7 lg:p-10">
         <span className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-brand">
-          <span className="size-1.5 rounded-full bg-brand" /> Barbearia premium
+          <span className="size-1.5 rounded-full bg-brand" /> {brand.hero.badge}
         </span>
         <h1 className="mt-5 max-w-2xl font-display text-4xl font-extrabold leading-[0.95] tracking-tight sm:text-5xl lg:text-6xl">
-          Seu estilo começa na cadeira certa.
+          {brand.hero.title}
         </h1>
         <p className="mt-5 max-w-xl text-base leading-7 text-ink/60 sm:text-lg">
-          Corte, barba e acabamento feito por profissionais que entendem de estilo. Escolha seu
-          serviço e agende em poucos passos.
+          {brand.hero.text}
         </p>
         <div className="mt-7 flex flex-wrap gap-3">
           <button
@@ -34,9 +34,9 @@ export function Hero({ onBook }: { onBook: (preset?: BookingPreset) => void }) {
           </a>
         </div>
         <div className="mt-8 grid grid-cols-3 gap-3 sm:gap-4">
-          <Stat value="12h" label="Por dia" />
-          <Stat value="+500" label="Clientes" />
-          <Stat value="4.9" label="Avaliação" />
+          {brand.hero.stats.map((stat) => (
+            <Stat key={stat.label} value={stat.value} label={stat.label} />
+          ))}
         </div>
       </div>
 

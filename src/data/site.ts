@@ -3,11 +3,9 @@ import rafaelImage from "@/assets/barber-rafael.jpg";
 import marcosImage from "@/assets/barber-marcos.jpg";
 import thiagoImage from "@/assets/barber-thiago.jpg";
 
-// Todos os dados abaixo são fictícios (projeto demonstrativo de portfólio).
+import { brand } from "./brand";
 
-export const WHATSAPP_NUMBER = "554699999999";
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const ADDRESS = "Rua das Tesouras, 128";
+// Conteúdo do site. Nome, contato e endereço ficam em ./brand.ts. Dados fictícios (demo).
 
 export const navLinks = [
   { label: "Serviços", href: "#servicos" },
@@ -103,6 +101,9 @@ export const testimonials = [
   },
 ];
 
+const firstNames = barbers.map((barber) => barber.name.split(" ")[0]);
+const barberNames = `${firstNames.slice(0, -1).join(", ")} ou ${firstNames.at(-1)}`;
+
 export const faq = [
   {
     question: "O horário fica confirmado na hora?",
@@ -111,8 +112,7 @@ export const faq = [
   },
   {
     question: "Posso escolher o barbeiro?",
-    answer:
-      "Sim. No agendamento você pode escolher Rafael, Marcos, Thiago ou trocar a opção antes de enviar a mensagem.",
+    answer: `Sim. No agendamento você pode escolher ${barberNames} ou trocar a opção antes de enviar a mensagem.`,
   },
   {
     question: "Posso cancelar ou remarcar?",
@@ -121,8 +121,7 @@ export const faq = [
   },
   {
     question: "Vocês atendem aos domingos?",
-    answer:
-      "Não. A FOLICULA funciona de segunda a sábado. O formulário também bloqueia a escolha de domingo.",
+    answer: `Não. A ${brand.name} funciona de segunda a sábado. O formulário também bloqueia a escolha de domingo.`,
   },
   {
     question: "Preciso pagar antecipado?",

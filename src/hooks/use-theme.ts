@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "folicula-theme";
+import { brand } from "@/data/brand";
+
+const STORAGE_KEY = `${brand.slug}-theme`;
 
 function saveTheme(dark: boolean) {
   try {

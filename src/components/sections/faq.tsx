@@ -1,6 +1,7 @@
 import { ChevronDown } from "lucide-react";
 
 import { SectionHeading } from "@/components/primitives";
+import { brand } from "@/data/brand";
 import { faq } from "@/data/site";
 
 export function Faq() {
@@ -9,7 +10,7 @@ export function Faq() {
       <SectionHeading
         eyebrow="Dúvidas rápidas"
         title="Antes de marcar, tudo bem explicado"
-        text="As principais perguntas para quem está conhecendo a FOLICULA pela primeira vez."
+        text={`As principais perguntas para quem está conhecendo a ${brand.name} pela primeira vez.`}
       />
       <div className="mt-6 grid gap-3 lg:grid-cols-2">
         {faq.map(({ question, answer }) => (

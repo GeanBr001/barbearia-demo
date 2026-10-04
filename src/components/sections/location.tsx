@@ -1,7 +1,7 @@
 import { ArrowRight, CalendarDays, Clock3, Instagram, MapPin, MessageCircle } from "lucide-react";
 
 import { SectionHeading, InfoRow } from "@/components/primitives";
-import { WHATSAPP_URL, ADDRESS } from "@/data/site";
+import { brand, mapsUrl, whatsappUrl } from "@/data/brand";
 import type { BookingPreset } from "@/lib/booking";
 
 export function Location({ onBook }: { onBook: (preset?: BookingPreset) => void }) {
@@ -14,18 +14,18 @@ export function Location({ onBook }: { onBook: (preset?: BookingPreset) => void 
           text="Atendimento com hora marcada em um ambiente pensado para você relaxar e sair com o visual em dia."
         />
         <div className="mt-7 grid gap-3 sm:grid-cols-2">
-          <InfoRow icon={<MapPin size={17} />} title="Endereço" text={`${ADDRESS} · Centro`} />
           <InfoRow
-            icon={<Clock3 size={17} />}
-            title="Horários"
-            text="Seg–Sex 09h–21h · Sáb 08h–20h"
+            icon={<MapPin size={17} />}
+            title="Endereço"
+            text={`${brand.address} · ${brand.neighborhood}`}
           />
+          <InfoRow icon={<Clock3 size={17} />} title="Horários" text={brand.hoursSummary} />
           <InfoRow
             icon={<MessageCircle size={17} />}
             title="WhatsApp"
             text="Agendamento e dúvidas"
           />
-          <InfoRow icon={<Instagram size={17} />} title="Instagram" text="@foliculabarber" />
+          <InfoRow icon={<Instagram size={17} />} title="Instagram" text={brand.instagram} />
         </div>
         <div className="mt-6 flex flex-wrap gap-3">
           <button
@@ -36,7 +36,7 @@ export function Location({ onBook }: { onBook: (preset?: BookingPreset) => void 
             <CalendarDays size={17} /> Agendar agora
           </button>
           <a
-            href={WHATSAPP_URL}
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-xl border border-ink/10 bg-white/70 px-5 py-3 font-semibold"
@@ -59,12 +59,12 @@ export function Location({ onBook }: { onBook: (preset?: BookingPreset) => void 
           </div>
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-brand">Localização</p>
-            <h3 className="mt-2 font-display text-3xl font-extrabold">Centro da cidade</h3>
+            <h3 className="mt-2 font-display text-3xl font-extrabold">{brand.locationTitle}</h3>
             <p className="mt-2 max-w-xs text-sm leading-6 text-white/55">
-              {ADDRESS} · fácil acesso e estacionamento próximo.
+              {brand.address} · fácil acesso e estacionamento próximo.
             </p>
             <a
-              href="https://www.google.com/maps/search/?api=1&query=Rua%20das%20Tesouras%2C%20128"
+              href={mapsUrl}
               target="_blank"
               rel="noreferrer"
               className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-brand"

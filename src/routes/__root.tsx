@@ -9,6 +9,8 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+import { brand } from "@/data/brand";
+
 import appCss from "../styles.css?url";
 
 const primaryButton =
@@ -37,7 +39,7 @@ function NotFound() {
 
 function RouteError({ error, reset }: ErrorComponentProps) {
   const router = useRouter();
-  console.error("FOLICULA route error:", error);
+  console.error(`${brand.name} route error:`, error);
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -73,13 +75,13 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Folicula Barber Studio" },
+      { title: brand.fullName },
       {
         name: "description",
-        content: "Folicula Barber Studio — cortes, barba e estilo com agendamento pelo WhatsApp.",
+        content: `${brand.fullName} — ${brand.seo.title.toLowerCase()} com agendamento pelo WhatsApp.`,
       },
-      { name: "author", content: "Gean Ribeiro" },
-      { name: "theme-color", content: "#0f172a" },
+      { name: "author", content: brand.author },
+      { name: "theme-color", content: brand.themeColor },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
