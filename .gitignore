@@ -1,18 +1,24 @@
-# dependencies
+# dependências
 node_modules/
 
 # build
 dist/
+.output/
+.nitro/
+.wrangler/
+.vinxi/
 .vite/
+.tanstack/
 .turbo/
 .cache/
+coverage/
 
-# local environment
+# ambiente local
 .env
 .env.*
 !.env.example
 
-# editor / OS
+# editor / sistema
 .vscode/*
 !.vscode/extensions.json
 !.vscode/settings.json
@@ -23,5 +29,3 @@ Thumbs.db
 # logs
 *.log
 npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*

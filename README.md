@@ -1,140 +1,66 @@
 # FOLICULA Barber Studio
 
-Site demonstrativo de uma barbearia moderna, criado como projeto de portfólio e preparado para desenvolvimento local, Git/GitHub e deploy na Vercel.
+Site demonstrativo de uma barbearia moderna, feito como projeto de portfólio. O visitante conhece os serviços e os barbeiros, monta um pedido de agendamento em um formulário e envia pelo WhatsApp.
 
-> **Projeto demonstrativo:** endereço, telefone, preços, nomes, avaliações e disponibilidade são fictícios e devem ser substituídos antes de qualquer uso comercial.
+> **Projeto demonstrativo:** endereço, telefone, preços, nomes, avaliações e disponibilidade são fictícios.
 
-## ✂️ Visão geral
+## Funcionalidades
 
-A FOLICULA apresenta serviços, barbeiros, galeria, avaliações, FAQ, horários e localização em uma landing page responsiva. O visitante também pode montar um pedido de agendamento e enviá-lo pelo WhatsApp.
+- Landing page responsiva: hero, serviços, galeria, barbeiros, avaliações, horários, FAQ e localização
+- Modo claro/escuro (usa a preferência do sistema e lembra a escolha do visitante)
+- Galeria com lightbox e navegação por teclado (← → Esc)
+- Agendamento em um modal: dados, serviço, barbeiro, data e horário
+  - máscara e validação de telefone
+  - domingos e datas passadas bloqueados; horários que já passaram hoje não aparecem
+  - agenda demonstrativa: a mesma data + barbeiro sempre mostra os mesmos horários livres/ocupados
+  - resumo do pedido e mensagem pronta para o WhatsApp
+- Barra de progresso de rolagem, botão de voltar ao topo e CTA fixo no mobile
+- Animações suaves com suporte a `prefers-reduced-motion` e foco visível para teclado
 
-## 🚀 Tecnologias
+## Tecnologias
 
-- React 19
-- TypeScript
-- Vite
-- Tailwind CSS
-- TanStack Router / Start
-- shadcn/ui / Radix UI
-- Lucide Icons
-- Vitest
+React 19 · TypeScript · Vite · Tailwind CSS 4 · TanStack Router/Start · Lucide Icons · Vitest
 
-## 📋 Funcionalidades
+## Estrutura
 
-- Hero com chamadas para agendamento
-- Modo claro/escuro com preferência salva no navegador
-- Serviços com preço e duração
-- Perfis dos barbeiros
-- Galeria com lightbox e navegação por teclado
-- Avaliações e FAQ
-- Horários e localização
-- Agendamento em etapas
-- Validação de telefone e data
-- Bloqueio de domingos e datas anteriores
-- Agenda demonstrativa com horários livres/ocupados por data + barbeiro
-- Resumo do pedido antes do envio
-- Mensagem automática para WhatsApp
-- Tela de confirmação após abrir o WhatsApp
-- Último agendamento salvo localmente para demonstração
-- Barra de progresso de navegação
-- Animações suaves com suporte a `prefers-reduced-motion`
-- Foco visível para teclado
-- Botão voltar ao topo
-- Layout responsivo para desktop e celular
-
-## 📅 Agendamento
-
-O fluxo atual funciona sem banco de dados. A disponibilidade da agenda é **simulada no navegador** para fins de demonstração.
-
-Para transformar isso em um produto comercial, a próxima evolução seria conectar a agenda a um backend/banco de dados e criar uma área para a equipe cadastrar, bloquear e confirmar horários.
-
-O número de teste está configurado em `src/routes/index.tsx`:
-
-```ts
-const WHATSAPP_NUMBER = "5546999075054";
+```text
+src/
+├── components/
+│   ├── sections/        # uma seção da página por arquivo (hero, serviços, galeria…)
+│   ├── booking-modal.tsx
+│   ├── gallery-lightbox.tsx
+│   └── header.tsx · footer.tsx · floating-actions.tsx · form-fields.tsx · primitives.tsx
+├── data/site.ts         # textos, serviços, barbeiros, FAQ, WhatsApp e endereço
+├── hooks/               # tema, rolagem, revelar ao rolar e estado do formulário
+├── lib/booking.ts       # regras do agendamento (datas, horários, telefone, mensagem)
+├── routes/              # rotas (TanStack Router, baseado em arquivos)
+└── styles.css           # tema e tokens de design
 ```
 
-Substitua esse número antes de entregar o projeto a um cliente.
-
-## 📦 Instalação
+## Como rodar
 
 ```bash
 npm install
-```
-
-## ▶️ Desenvolvimento
-
-```bash
 npm run dev
 ```
 
-Normalmente o Vite disponibiliza o projeto em:
+O Vite mostra no terminal o endereço local (normalmente `http://localhost:5173`).
 
-```text
-http://localhost:5173
-```
+| Script              | O que faz                               |
+| ------------------- | --------------------------------------- |
+| `npm run dev`       | servidor de desenvolvimento             |
+| `npm run build`     | build de produção (saída em `.output/`) |
+| `npm run preview`   | serve o build localmente                |
+| `npm run typecheck` | verifica os tipos                       |
+| `npm run lint`      | ESLint + Prettier                       |
+| `npm run test`      | testes (Vitest)                         |
 
-## 🧪 Verificações locais
+## Agendamento e WhatsApp
 
-Antes de publicar uma versão, rode:
+Não há banco de dados: a disponibilidade é **simulada no navegador** e a confirmação real acontece pelo WhatsApp. O número fica em `src/data/site.ts` (`WHATSAPP_NUMBER`) — troque pelo número do cliente antes de qualquer uso real.
 
-```bash
-npm run lint
-npx tsc --noEmit
-npm run test
-npm run build
-```
+Para virar um produto de verdade, o próximo passo seria conectar a agenda a um backend/banco de dados e criar uma área para a equipe cadastrar, bloquear e confirmar horários.
 
-Se o ambiente não possuir as dependências instaladas, execute primeiro `npm install`.
-
-## 🌐 Deploy
-
-Fluxo recomendado:
-
-```text
-VS Code → Git → GitHub → Vercel
-```
-
-Antes do primeiro deploy comercial, confirme o build no ambiente da Vercel e substitua todos os dados fictícios.
-
-## 🌿 Git
-
-- `main` → versão estável
-- `dev` → desenvolvimento
-
-Fluxo recomendado:
-
-```text
-main
-  └── dev
-      └── Pull Request → main
-```
-
-Faça as alterações em `dev`. Quando uma versão estiver testada, abra um Pull Request para `main`.
-
-## 🔒 Segurança
-
-- `node_modules` e arquivos de build não entram no Git.
-- `.env` é ignorado pelo Git.
-- Nunca coloque senhas, tokens ou chaves privadas no código.
-- Dados fictícios devem ser substituídos antes de um uso real.
-
-## ✅ Checklist antes de entregar a um cliente
-
-- [ ] Nome e identidade da empresa
-- [ ] Logo e favicon
-- [ ] Fotos reais
-- [ ] Serviços e preços reais
-- [ ] Nome dos profissionais
-- [ ] WhatsApp real
-- [ ] Endereço e mapa
-- [ ] Horários reais
-- [ ] Redes sociais
-- [ ] Política de privacidade, se necessária
-- [ ] Agenda/backend real, caso o cliente precise de disponibilidade em tempo real
-- [ ] Teste em celular e desktop
-- [ ] `npm run build` funcionando
-
-## 👨‍💻 Desenvolvedor
+## Autor
 
 Gean Ribeiro

@@ -19,65 +19,65 @@ var public_assets_data_default = {
 	"/favicon.ico": {
 		"type": "image/vnd.microsoft.icon",
 		"etag": "\"4f95-3RXc3p2mhEAs1WBwaIvE0Y0uu0Y\"",
-		"mtime": "2026-10-04T00:32:25.550Z",
+		"mtime": "2026-10-04T08:15:06.009Z",
 		"size": 20373,
 		"path": "../public/favicon.ico"
 	},
+	"/assets/barber-rafael-C7Jyfms8.jpg": {
+		"type": "image/jpeg",
+		"etag": "\"13b34-qB3uaqDN/mOw9XDuSwHhCEJB7PI\"",
+		"mtime": "2026-10-04T08:17:45.977Z",
+		"size": 80692,
+		"path": "../public/assets/barber-rafael-C7Jyfms8.jpg"
+	},
 	"/robots.txt": {
 		"type": "text/plain; charset=utf-8",
-		"etag": "\"a0-CKGXSIe7TSsqDTmGm/nY1t/o5d0\"",
-		"mtime": "2026-10-04T00:32:25.545Z",
-		"size": 160,
+		"etag": "\"17-ZZkCVrbr4BSdjt/K43J0tq8+Qq4\"",
+		"mtime": "2026-10-04T08:15:06.014Z",
+		"size": 23,
 		"path": "../public/robots.txt"
 	},
 	"/assets/barber-marcos-BH0Qqu3G.jpg": {
 		"type": "image/jpeg",
 		"etag": "\"10537-if/jnPweP8G4WA38oxF68EBSDjU\"",
-		"mtime": "2026-10-04T00:35:21.659Z",
+		"mtime": "2026-10-04T08:17:45.976Z",
 		"size": 66871,
 		"path": "../public/assets/barber-marcos-BH0Qqu3G.jpg"
-	},
-	"/assets/barber-rafael-C7Jyfms8.jpg": {
-		"type": "image/jpeg",
-		"etag": "\"13b34-qB3uaqDN/mOw9XDuSwHhCEJB7PI\"",
-		"mtime": "2026-10-04T00:35:21.659Z",
-		"size": 80692,
-		"path": "../public/assets/barber-rafael-C7Jyfms8.jpg"
-	},
-	"/assets/barber-thiago-CghfFU1O.jpg": {
-		"type": "image/jpeg",
-		"etag": "\"14bdc-oC3kYnhbHsASA17hjYRq9natdfw\"",
-		"mtime": "2026-10-04T00:35:21.659Z",
-		"size": 84956,
-		"path": "../public/assets/barber-thiago-CghfFU1O.jpg"
-	},
-	"/assets/routes-DU2Ga1Cs.js": {
-		"type": "text/javascript; charset=utf-8",
-		"etag": "\"ae38-XbVnjp60JiSTw1Av/RBieH/jXmA\"",
-		"mtime": "2026-10-04T00:35:21.658Z",
-		"size": 44600,
-		"path": "../public/assets/routes-DU2Ga1Cs.js"
 	},
 	"/assets/hero-barber-DqjFvSEm.jpg": {
 		"type": "image/jpeg",
 		"etag": "\"1e967-35iO+bg8LImabAVCQ0bkgXG29Qk\"",
-		"mtime": "2026-10-04T00:35:21.660Z",
+		"mtime": "2026-10-04T08:17:45.977Z",
 		"size": 125287,
 		"path": "../public/assets/hero-barber-DqjFvSEm.jpg"
 	},
-	"/assets/styles-DdFHtm55.css": {
-		"type": "text/css; charset=utf-8",
-		"etag": "\"19092-mAOSqdEkH3DipUoxuZhoQ4Gsv8I\"",
-		"mtime": "2026-10-04T00:35:21.660Z",
-		"size": 102546,
-		"path": "../public/assets/styles-DdFHtm55.css"
+	"/assets/barber-thiago-CghfFU1O.jpg": {
+		"type": "image/jpeg",
+		"etag": "\"14bdc-oC3kYnhbHsASA17hjYRq9natdfw\"",
+		"mtime": "2026-10-04T08:17:45.977Z",
+		"size": 84956,
+		"path": "../public/assets/barber-thiago-CghfFU1O.jpg"
 	},
-	"/assets/index-CtO-jSzR.js": {
+	"/assets/routes-DDBd1aH5.js": {
 		"type": "text/javascript; charset=utf-8",
-		"etag": "\"5a187-lfd0jlvz7acVMxNrGwtf9P5x+bQ\"",
-		"mtime": "2026-10-04T00:35:21.657Z",
-		"size": 369031,
-		"path": "../public/assets/index-CtO-jSzR.js"
+		"etag": "\"b377-wVZgKAF3iDEDLeoURDUiWXNDgEw\"",
+		"mtime": "2026-10-04T08:17:45.976Z",
+		"size": 45943,
+		"path": "../public/assets/routes-DDBd1aH5.js"
+	},
+	"/assets/styles-CC1BIuuA.css": {
+		"type": "text/css; charset=utf-8",
+		"etag": "\"b70a-jtb67R5Oo4793TA6uMvnUnOyewc\"",
+		"mtime": "2026-10-04T08:17:45.978Z",
+		"size": 46858,
+		"path": "../public/assets/styles-CC1BIuuA.css"
+	},
+	"/assets/index-BQdMz2c0.js": {
+		"type": "text/javascript; charset=utf-8",
+		"etag": "\"53f32-Jhbgf3f6Z4luDoC9RA5v4tf75EM\"",
+		"mtime": "2026-10-04T08:17:45.975Z",
+		"size": 343858,
+		"path": "../public/assets/index-BQdMz2c0.js"
 	}
 };
 //#endregion
