@@ -1,53 +1,60 @@
 # FOLICULA Barber Studio
 
-Landing page demonstrativa para uma barbearia moderna, criada como projeto de portfólio.
+Site demonstrativo de uma barbearia moderna, criado como projeto de portfólio e preparado para desenvolvimento local, Git/GitHub e deploy na Vercel.
 
-## ✂️ Sobre o projeto
+> **Projeto demonstrativo:** endereço, telefone, preços, nomes, avaliações e disponibilidade são fictícios e devem ser substituídos antes de qualquer uso comercial.
 
-O FOLICULA Barber Studio é um site institucional responsivo para apresentar uma barbearia, seus profissionais, serviços e informações de atendimento.
+## ✂️ Visão geral
 
-O projeto foi prototipado com Lovable e preparado para desenvolvimento local, versionamento com Git/GitHub e deploy na Vercel.
-
-> **Projeto demonstrativo:** informações como endereço, telefone, preços e nomes são fictícias e devem ser substituídas antes de qualquer uso comercial.
+A FOLICULA apresenta serviços, barbeiros, galeria, avaliações, FAQ, horários e localização em uma landing page responsiva. O visitante também pode montar um pedido de agendamento e enviá-lo pelo WhatsApp.
 
 ## 🚀 Tecnologias
 
-- React
+- React 19
 - TypeScript
 - Vite
 - Tailwind CSS
-- TanStack Router
+- TanStack Router / Start
 - shadcn/ui / Radix UI
 - Lucide Icons
+- Vitest
 
 ## 📋 Funcionalidades
 
-- Hero section com CTA de agendamento
-- Modo claro e escuro com preferência salva no navegador
-- Apresentação da barbearia
-- Serviços com preços e duração
-- Galeria de estilos
+- Hero com chamadas para agendamento
+- Modo claro/escuro com preferência salva no navegador
+- Serviços com preço e duração
 - Perfis dos barbeiros
-- Depoimentos
-- Localização e link para Google Maps
-- Modal de agendamento
-- Seleção de serviço, barbeiro, data e horário
-- Validação básica de data e dados do cliente
-- Resumo do agendamento com preço e duração
-- Geração de mensagem para WhatsApp
+- Galeria com lightbox e navegação por teclado
+- Avaliações e FAQ
+- Horários e localização
+- Agendamento em etapas
+- Validação de telefone e data
+- Bloqueio de domingos e datas anteriores
+- Agenda demonstrativa com horários livres/ocupados por data + barbeiro
+- Resumo do pedido antes do envio
+- Mensagem automática para WhatsApp
+- Tela de confirmação após abrir o WhatsApp
+- Último agendamento salvo localmente para demonstração
+- Barra de progresso de navegação
+- Animações suaves com suporte a `prefers-reduced-motion`
+- Foco visível para teclado
+- Botão voltar ao topo
 - Layout responsivo para desktop e celular
 
 ## 📅 Agendamento
 
-O agendamento da V4 funciona sem banco de dados. O cliente preenche os dados no site e o pedido é enviado pelo WhatsApp da barbearia.
+O fluxo atual funciona sem banco de dados. A disponibilidade da agenda é **simulada no navegador** para fins de demonstração.
 
-O horário **não é confirmado automaticamente**: a confirmação acontece após a resposta da barbearia no WhatsApp.
+Para transformar isso em um produto comercial, a próxima evolução seria conectar a agenda a um backend/banco de dados e criar uma área para a equipe cadastrar, bloquear e confirmar horários.
 
-Antes de publicar para uma empresa real, substitua o número em `src/routes/index.tsx`:
+O número de teste está configurado em `src/routes/index.tsx`:
 
 ```ts
-const WHATSAPP_NUMBER = "5511999999999";
+const WHATSAPP_NUMBER = "5546999075054";
 ```
+
+Substitua esse número antes de entregar o projeto a um cliente.
 
 ## 📦 Instalação
 
@@ -61,27 +68,26 @@ npm install
 npm run dev
 ```
 
-O Vite disponibiliza o projeto localmente, normalmente em:
+Normalmente o Vite disponibiliza o projeto em:
 
 ```text
 http://localhost:5173
 ```
 
-## 🏗️ Build
+## 🧪 Verificações locais
+
+Antes de publicar uma versão, rode:
 
 ```bash
+npm run lint
+npx tsc --noEmit
+npm run test
 npm run build
 ```
 
-## 🧪 TypeScript
-
-```bash
-npx tsc --noEmit
-```
+Se o ambiente não possuir as dependências instaladas, execute primeiro `npm install`.
 
 ## 🌐 Deploy
-
-O projeto pode ser conectado ao GitHub e publicado na Vercel.
 
 Fluxo recomendado:
 
@@ -89,36 +95,46 @@ Fluxo recomendado:
 VS Code → Git → GitHub → Vercel
 ```
 
-## 🌿 Branches
+Antes do primeiro deploy comercial, confirme o build no ambiente da Vercel e substitua todos os dados fictícios.
+
+## 🌿 Git
 
 - `main` → versão estável
 - `dev` → desenvolvimento
 
-Fluxo:
+Fluxo recomendado:
 
 ```text
 main
   └── dev
+      └── Pull Request → main
 ```
 
-Desenvolva em `dev` e faça Pull Request para `main` quando uma versão estiver pronta.
+Faça as alterações em `dev`. Quando uma versão estiver testada, abra um Pull Request para `main`.
 
 ## 🔒 Segurança
 
-Não coloque senhas, tokens ou chaves privadas no código ou no GitHub. Use variáveis de ambiente (`.env`) quando um projeto precisar de informações sensíveis.
+- `node_modules` e arquivos de build não entram no Git.
+- `.env` é ignorado pelo Git.
+- Nunca coloque senhas, tokens ou chaves privadas no código.
+- Dados fictícios devem ser substituídos antes de um uso real.
+
+## ✅ Checklist antes de entregar a um cliente
+
+- [ ] Nome e identidade da empresa
+- [ ] Logo e favicon
+- [ ] Fotos reais
+- [ ] Serviços e preços reais
+- [ ] Nome dos profissionais
+- [ ] WhatsApp real
+- [ ] Endereço e mapa
+- [ ] Horários reais
+- [ ] Redes sociais
+- [ ] Política de privacidade, se necessária
+- [ ] Agenda/backend real, caso o cliente precise de disponibilidade em tempo real
+- [ ] Teste em celular e desktop
+- [ ] `npm run build` funcionando
 
 ## 👨‍💻 Desenvolvedor
 
 Gean Ribeiro
-
-
-## 🆕 V5
-
-- Modo claro/escuro com preferência salva no navegador
-- Agendamento pelo WhatsApp
-- Número de atendimento configurado para teste
-- Galeria com visualização ampliada e navegação por setas
-- Seção de horários com atalhos para iniciar o agendamento
-- Navegação atualizada para a seção de horários
-
-> **Demonstração:** o número de WhatsApp configurado nesta versão é o número de teste do desenvolvedor. Substitua antes de entregar o projeto a um cliente.
